@@ -1,0 +1,85 @@
+<!doctype HTML>
+<html>
+  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  <!-- include ar.js for A-Frame -->
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+  <body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 4x4; debugUIEnabled: false">
+      <a-marker id="dynamic-marker" type="barcode" value="203">
+        <a-box color="#ddd" depth="2" height="0.25" width="4" material="opacity: 1" position="0 -2 0"></a-box>
+        <a-text value="Sala 203" color="red" position="-1.85 -1.85 -0.75" material="shader: flat" scale="2 2 2" rotation="-90 0 0"></a-text>
+      </a-marker>
+      <!-- Add a cursor for interaction -->
+      <a-entity camera look-controls>
+        <a-cursor></a-cursor>
+      </a-entity>
+    </a-scene>
+    
+    <script>
+      const schedule = [
+        { barcode: "203", day: "monday", hstart: "16:00", hstop: "18:00", name: "IARA", type: "curs", link: "https://google.com" },
+        { barcode: "203", day: "monday", hstart: "18:00", hstop: "20:00", name: "IARA", type: "lab", link: "https://google.com" },
+        { barcode: "203", day: "tuesday", hstart: "16:00", hstop: "18:00", name: "PPAW", type: "lab", link: "https://gmail.com" },
+        { barcode: "203", day: "tuesday", hstart: "18:00", hstop: "20:00", name: "PPAW", type: "curs", link: "https://gmail.com" },
+        { barcode: "203", day: "wednesday", hstart: "16:00", hstop: "18:00", name: "TEH", type: "lab", link: "https://gmail.com" },
+        { barcode: "203", day: "wednesday", hstart: "18:00", hstop: "20:00", name: "TEH", type: "curs", link: "https://gmail.com" },
+        { barcode: "203", day: "thursday", hstart: "16:00", hstop: "18:00", name: "CLD", type: "lab", link: "https://gmail.com" },
+        { barcode: "203", day: "thursday", hstart: "18:00", hstop: "20:00", name: "CLD", type: "curs", link: "https://gmail.com" },
+        { barcode: "203", day: "friday", hstart: "16:00", hstop: "18:00", name: "DDAW", type: "lab", link: "https://gmail.com" },
+        { barcode: "203", day: "friday", hstart: "18:00", hstop: "20:00", name: "DDAW", type: "curs", link: "https://gmail.com" }
+      ];
+
+      // Date & time
+      const now = new Date();
+      const currentDay = now.toLocaleString("en-us", { weekday: "long" }).toLowerCase();
+      const currentTime = now.getHours() * 60 + now.getMinutes(); // Time in minutes
+
+      // Culoare text
+      function getTextColor(hstart, hstop) {
+        const startMinutes = parseInt(hstart.split(":")[0]) * 60 + parseInt(hstart.split(":")[1]);
+        const stopMinutes = parseInt(hstop.split(":")[0]) * 60 + parseInt(hstop.split(":")[1]);
+
+        if (currentTime >= startMinutes && currentTime <= stopMinutes) {
+          return "red"; 
+        }
+        return "gray"; 
+      }
+
+      // Populare marker
+      const marker = document.querySelector("#dynamic-marker");
+      let positionY = -0.35;
+      const yOffset = 0.4;
+
+      schedule
+        .filter(item => item.barcode === "203" && item.day === currentDay) // Cod si ziua curenta
+        .forEach(item => {
+          // Text
+          const text = document.createElement("a-text");
+          text.setAttribute("value", `{${item.hstart}-${item.hstop}} ${item.name} - ${item.type}`);
+          text.setAttribute("color", getTextColor(item.hstart, item.hstop));
+          text.setAttribute("position", `-1.85 -1.75 ${positionY}`);
+          text.setAttribute("material", "shader: flat");
+          text.setAttribute("scale", "1 1 1");
+          text.setAttribute("rotation", "-90 0 0");
+          marker.appendChild(text);
+
+          // Link circle
+          const circle = document.createElement("a-circle");
+          circle.setAttribute("id", `link-${item.hstart.replace(":", "")}`);
+          circle.setAttribute("color", "blue");
+          circle.setAttribute("radius", "0.2");
+          circle.setAttribute("position", `1.5 -1.75 ${positionY}`);
+          circle.setAttribute("rotation", "-90 0 0");
+          marker.appendChild(circle);
+
+          // Click event
+          circle.addEventListener("click", () => {
+            window.location.href = item.link;
+          });
+
+          // Offset pentru urmatoarea inregistrare
+          positionY += yOffset;
+        });
+    </script>
+  </body>
+</html>
