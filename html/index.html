@@ -5,9 +5,9 @@
   <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
   <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 4x4; debugUIEnabled: false">
-      <a-marker id="dynamic-marker" type="barcode" value="203">
-        <a-box color="#ddd" depth="2" height="0.25" width="4" material="opacity: 1" position="0 -2 0"></a-box>
-        <a-text value="Sala 203" color="red" position="-1.85 -1.85 -0.75" material="shader: flat" scale="2 2 2" rotation="-90 0 0"></a-text>
+      <a-marker id="203" type="barcode" value="203">
+      </a-marker>
+      <a-marker id="204" type="barcode" value="204">
       </a-marker>
       <!-- Add a cursor for interaction -->
       <a-entity camera look-controls>
@@ -17,16 +17,34 @@
     
     <script>
       const schedule = [
-        { barcode: "203", day: "monday", hstart: "16:00", hstop: "18:00", name: "IARA", type: "curs", link: "https://google.com" },
-        { barcode: "203", day: "monday", hstart: "18:00", hstop: "20:00", name: "IARA", type: "lab", link: "https://google.com" },
-        { barcode: "203", day: "tuesday", hstart: "16:00", hstop: "18:00", name: "PPAW", type: "lab", link: "https://gmail.com" },
-        { barcode: "203", day: "tuesday", hstart: "18:00", hstop: "20:00", name: "PPAW", type: "curs", link: "https://gmail.com" },
-        { barcode: "203", day: "wednesday", hstart: "16:00", hstop: "18:00", name: "TEH", type: "lab", link: "https://gmail.com" },
-        { barcode: "203", day: "wednesday", hstart: "18:00", hstop: "20:00", name: "TEH", type: "curs", link: "https://gmail.com" },
-        { barcode: "203", day: "thursday", hstart: "16:00", hstop: "18:00", name: "CLD", type: "lab", link: "https://gmail.com" },
-        { barcode: "203", day: "thursday", hstart: "18:00", hstop: "20:00", name: "CLD", type: "curs", link: "https://gmail.com" },
-        { barcode: "203", day: "friday", hstart: "16:00", hstop: "18:00", name: "DDAW", type: "lab", link: "https://gmail.com" },
-        { barcode: "203", day: "friday", hstart: "18:00", hstop: "20:00", name: "DDAW", type: "curs", link: "https://gmail.com" }
+        { barcode: "203", day: "monday", hstart: "16:00", hstop: "18:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "203", day: "monday", hstart: "18:00", hstop: "20:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "203", day: "tuesday", hstart: "16:00", hstop: "18:00", name: "Tehnologii Cloud", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/07.USV_.FIESC_.SIC_.DAP_.03.07-TC-SCHIPOR-O.pdf" },
+        { barcode: "203", day: "tuesday", hstart: "18:00", hstop: "20:00", name: "-", type: "-", link: "#" },
+        { barcode: "203", day: "wednesday", hstart: "16:00", hstop: "18:00", name: "TUT", type: "lab", link: "#" },
+        { barcode: "203", day: "wednesday", hstart: "18:00", hstop: "20:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "203", day: "thursday", hstart: "16:00", hstop: "18:00", name: "Paradigme de proiectare a aplicatiilor web", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/04.USV_.FIESC_.SIC_.DSI_.01.O.04.pdf" },
+        { barcode: "203", day: "thursday", hstart: "18:00", hstop: "20:00", name: "Paradigme de proiectare a aplicatiilor web", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/04.USV_.FIESC_.SIC_.DSI_.01.O.04.pdf" },
+        { barcode: "203", day: "friday", hstart: "16:00", hstop: "18:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "203", day: "friday", hstart: "18:00", hstop: "20:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "203", day: "friday", hstart: "20:00", hstop: "23:59", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "204", day: "monday", hstart: "16:00", hstop: "18:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "204", day: "monday", hstart: "18:00", hstop: "20:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "204", day: "tuesday", hstart: "16:00", hstop: "18:00", name: "Tehnologii Cloud", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/07.USV_.FIESC_.SIC_.DAP_.03.07-TC-SCHIPOR-O.pdf" },
+        { barcode: "204", day: "tuesday", hstart: "18:00", hstop: "20:00", name: "-", type: "-", link: "#" },
+        { barcode: "204", day: "wednesday", hstart: "16:00", hstop: "18:00", name: "TUT", type: "lab", link: "#" },
+        { barcode: "204", day: "wednesday", hstart: "18:00", hstop: "20:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "204", day: "thursday", hstart: "16:00", hstop: "18:00", name: "Paradigme de proiectare a aplicatiilor web", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/04.USV_.FIESC_.SIC_.DSI_.01.O.04.pdf" },
+        { barcode: "204", day: "thursday", hstart: "18:00", hstop: "20:00", name: "Paradigme de proiectare a aplicatiilor web", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/04.USV_.FIESC_.SIC_.DSI_.01.O.04.pdf" },
+        { barcode: "204", day: "friday", hstart: "16:00", hstop: "18:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "204", day: "friday", hstart: "18:00", hstop: "20:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "204", day: "friday", hstart: "20:00", hstop: "23:59", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "203", day: "saturday", hstart: "00:00", hstop: "23:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "203", day: "saturday", hstart: "10:00", hstop: "12:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "203", day: "saturday", hstart: "12:00", hstop: "14:00", name: "Inteligenta Augmentala si Realitate Augmentata", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2021/01/03.USV_.FIESC_.SIC_.DAP_.03.03-IARA-VATAVU-RD.pdf" },
+        { barcode: "204", day: "saturday", hstart: "00:00", hstop: "23:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "curs", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "204", day: "saturday", hstart: "10:00", hstop: "12:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
+        { barcode: "204", day: "saturday", hstart: "12:00", hstop: "14:00", name: "Algoritmi avansati, probabilistici si tehnici metaeuristici", type: "lab", link: "https://fiesc.usv.ro/wp-content/uploads/sites/17/2024/10/02.USV_.FIESC_.SIC_.DSI_.01.O.02.pdf" },
       ];
 
       // Date & time
@@ -45,41 +63,126 @@
         return "gray"; 
       }
 
-      // Populare marker
-      const marker = document.querySelector("#dynamic-marker");
-      let positionY = -0.35;
-      const yOffset = 0.4;
+      function populateMarker(marker, barcode) {
+      // Clear existing children to avoid duplicates
+      while (marker.firstChild) {
+        marker.removeChild(marker.firstChild);
+      }
+
+      let positionY = -0.75;
+      let positionZ = -1.75;
+      let positionTextX = -2.5;
+      let positionLinkX = 1.5;
+      const yOffset = 0.75;
+
+      // Fundal
+      const fundal = document.createElement("a-box");
+      fundal.setAttribute("color", "#ddd");
+      fundal.setAttribute("depth", "4.5");
+      fundal.setAttribute("height", "0.25");
+      fundal.setAttribute("width", "6");
+      fundal.setAttribute("position", `0 -2 0`);
+      fundal.setAttribute("material", "opacity: 1");
+      marker.appendChild(fundal);
+
+      // Titlu
+      const titlu = document.createElement("a-text");
+      titlu.setAttribute("value", `[Sala ${barcode}]`);
+      titlu.setAttribute("color", "red");
+      titlu.setAttribute("position", `${positionTextX} ${positionZ} -1.4`);
+      titlu.setAttribute("material", "shader: flat");
+      titlu.setAttribute("scale", "2 2 2");
+      titlu.setAttribute("rotation", "-90 0 0");
+      marker.appendChild(titlu);
+
+      //Despartitor
+      const despartitor = document.createElement("a-entity");
+      despartitor.setAttribute("geometry","primitive: plane; height: 0.02; width: 5;");
+      despartitor.setAttribute("position", `0 ${positionZ} -1`);
+      despartitor.setAttribute("material", "color: gray");
+      despartitor.setAttribute("rotation", "-90 0 0");
+      marker.appendChild(despartitor);
 
       schedule
-        .filter(item => item.barcode === "203" && item.day === currentDay) // Cod si ziua curenta
+        .filter(item => item.barcode === barcode && item.day === currentDay)
         .forEach(item => {
-          // Text
-          const text = document.createElement("a-text");
-          text.setAttribute("value", `{${item.hstart}-${item.hstop}} ${item.name} - ${item.type}`);
-          text.setAttribute("color", getTextColor(item.hstart, item.hstop));
-          text.setAttribute("position", `-1.85 -1.75 ${positionY}`);
-          text.setAttribute("material", "shader: flat");
-          text.setAttribute("scale", "1 1 1");
-          text.setAttribute("rotation", "-90 0 0");
-          marker.appendChild(text);
+          // Interval
+          const interval = document.createElement("a-text");
+          interval.setAttribute("value", `[${item.hstart}-${item.hstop}] [${item.type}]`);
+          interval.setAttribute("color", getTextColor(item.hstart, item.hstop));
+          interval.setAttribute("position", `${positionTextX} ${positionZ} ${positionY}`);
+          interval.setAttribute("material", "shader: flat");
+          interval.setAttribute("scale", "1 1 1");
+          interval.setAttribute("rotation", "-90 0 0");
+          marker.appendChild(interval);
 
-          // Link circle
+/*           // Link circle
           const circle = document.createElement("a-circle");
           circle.setAttribute("id", `link-${item.hstart.replace(":", "")}`);
           circle.setAttribute("color", "blue");
           circle.setAttribute("radius", "0.2");
-          circle.setAttribute("position", `1.5 -1.75 ${positionY}`);
+          circle.setAttribute("position", `${positionLinkX} ${positionZ} ${positionY}`);
           circle.setAttribute("rotation", "-90 0 0");
-          marker.appendChild(circle);
+          marker.appendChild(circle); */
+
+          // Pill shape (rounded rectangle)
+          const pill = document.createElement("a-box");
+          pill.setAttribute("height", "0.3");
+          pill.setAttribute("width", "1.5");
+          pill.setAttribute("depth", "0.01");
+          pill.setAttribute("color", "royalblue");
+          pill.setAttribute("radius", "0.2");
+          pill.setAttribute("position", `${positionLinkX} ${positionZ} ${positionY}`);
+          pill.setAttribute("rotation", "-90 0 0");
+          marker.appendChild(pill);
+
+          // Add "Detalii" text inside the pill
+          const pillText = document.createElement("a-text");
+          pillText.setAttribute("value", "Detalii");
+          pillText.setAttribute("color", "white");
+          pillText.setAttribute("align", "center");
+          pillText.setAttribute("position", `${positionLinkX+0.01} ${positionZ+0.05} ${positionY + 0.01}`);
+          pillText.setAttribute("rotation", "-90 0 0");
+          pillText.setAttribute("scale", "0.75 0.75 0.75");
+          marker.appendChild(pillText);
+
+          positionY += yOffset/2;
+
+          // Curs
+          const curs = document.createElement("a-text");
+          curs.setAttribute("value", `[${item.name}]`);
+          curs.setAttribute("color", getTextColor(item.hstart, item.hstop));
+          curs.setAttribute("position", `${positionTextX} ${positionZ} ${positionY}`);
+          curs.setAttribute("material", "shader: flat");
+          curs.setAttribute("scale", "1 1 1");
+          curs.setAttribute("rotation", "-90 0 0");
+          marker.appendChild(curs);
+
+          //Despartitor
+          const despartitor = document.createElement("a-entity");
+          despartitor.setAttribute("geometry","primitive: plane; height: 0.02; width: 5;");
+          despartitor.setAttribute("position", `0 ${positionZ} ${positionY+yOffset/2}`);
+          despartitor.setAttribute("material", "color: gray");
+          despartitor.setAttribute("rotation", "-90 0 0");
+          marker.appendChild(despartitor);
 
           // Click event
-          circle.addEventListener("click", () => {
+          pill.addEventListener("click", () => {
             window.location.href = item.link;
           });
 
-          // Offset pentru urmatoarea inregistrare
+          // Offset for next entry
           positionY += yOffset;
         });
+    }
+
+    document.querySelectorAll("a-marker").forEach(marker => {
+      marker.addEventListener("markerFound", () => {
+        const barcodeValue = marker.getAttribute("value");
+        console.log(`Marker gasit: ${barcodeValue}`);
+        populateMarker(marker, barcodeValue);
+      });
+    });
     </script>
   </body>
 </html>
